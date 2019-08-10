@@ -148,7 +148,7 @@ export default class EditHotdog extends Component {
                                 <label className="form-check-label" htmlFor="completedCheckbox">
                                     Cancel Order
                                 </label>
-                    </div>              
+                    </div>          
                     <br/>      
                     <div className="form-group">
                         <input type="submit" value="Update Hotdog" className="btn btn-primary" />

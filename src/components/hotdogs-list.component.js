@@ -8,8 +8,11 @@ const Hotdog = props => (
         <td className={props.hotdog.hotdog_completed ? 'completed' : ''}>{props.hotdog.hotdog_responsible}</td>
         <td className={props.hotdog.hotdog_completed ? 'completed' : ''}>{props.hotdog.hotdog_priority}</td>
         <td>
-            <Link to={"/edit/"+props.hotdog._id}>Edit</Link>
+            <Link to={"/edit/"+props.hotdog._id}>Edit </Link>
+            <button className="btn red" >Delete</button>
         </td>
+       
+
     </tr>
 )
 
@@ -37,6 +40,10 @@ export default class HotdogsList extends Component {
             .catch(function (error) {
                 console.log(error);
             });
+    }
+
+    onDelete() {
+
     }
 
     hotdogList() {
