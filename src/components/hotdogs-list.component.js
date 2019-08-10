@@ -4,18 +4,16 @@ import axios from 'axios';
 
 const Hotdog = props => (
     <tr>
-        <td>{props.hotdog.hotdog}</td>
-        <td>{props.hotdog.hotdog}</td>
-        <td>{props.hotdog.hotdog}</td>
+        <td className={props.hotdog.hotdog_completed ? 'completed' : ''}>{props.hotdog.hotdog_description}</td>
+        <td className={props.hotdog.hotdog_completed ? 'completed' : ''}>{props.hotdog.hotdog_responsible}</td>
+        <td className={props.hotdog.hotdog_completed ? 'completed' : ''}>{props.hotdog.hotdog_priority}</td>
         <td>
-            <Link to={"/edit/"+props.hotdog._id}>
-                Edit
-            </Link>
+            <Link to={"/edit/"+props.hotdog._id}>Edit</Link>
         </td>
     </tr>
 )
 
-export default class HotdogList extends Component {
+export default class HotdogsList extends Component {
     constructor(props) {
         super(props);
         this.state = {hotdogs: []};
@@ -24,7 +22,17 @@ export default class HotdogList extends Component {
     componentDidMount() {
         axios.get('http://localhost:4000/hotdogs/')
             .then(response => {
-                this.setState({hotdogs: response.data});
+                this.setState({hotdogs: response.data})
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
+    componentDidUpdate() {
+        axios.get('http://localhost:4000/hotdogs/')
+            .then(response => {
+                this.setState({hotdogs: response.data})
             })
             .catch(function (error) {
                 console.log(error);

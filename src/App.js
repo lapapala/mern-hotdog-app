@@ -5,7 +5,7 @@ import logo from "./logo.png";
 
 import CreateHotdog from "./components/create-hotdog.component";
 import EditHotdog from "./components/edit-hotdog.component";
-import HotdogList from "./components/hotdog-list.component";
+import HotdogList from "./components/hotdogs-list.component";
 
 
 class App extends Component {
