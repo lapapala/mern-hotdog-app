@@ -52,9 +52,9 @@ export default class HotdogsList extends Component {
                     <table className="table table-striped" style={{marginTop: 20}}>
                         <thead>
                             <tr>
-                                <th>Description</th>
-                                <th>Responsible</th>
-                                <th>Priority</th>
+                                <th>Hotdog</th>
+                                <th>Customer</th>
+                                <th>Steak Cooked</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>

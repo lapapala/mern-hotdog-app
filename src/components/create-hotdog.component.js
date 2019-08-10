@@ -73,7 +73,7 @@ export default class CreateHotdog extends Component {
                 <h3>Create New Hotdog</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
-                        <label>Description: </label>
+                        <label>Hotdog: </label>
                         <input  type="text"
                                 className="form-control"
                                 value={this.state.hotdog_description}
@@ -81,13 +81,14 @@ export default class CreateHotdog extends Component {
                                 />
                     </div>
                     <div className="form-group">
-                        <label>Responsible: </label>
+                        <label>Customer: </label>
                         <input  type="text"
                                 className="form-control"
                                 value={this.state.hotdog_responsible}
                                 onChange={this.onChangeHotdogResponsible}
                                 />
                     </div>
+                       <label>Steak Cooked: </label>
                     <div className="form-group">
                         <div className="form-check form-check-inline">
                             <input className="form-check-input"

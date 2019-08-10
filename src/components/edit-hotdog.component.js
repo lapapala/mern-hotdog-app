@@ -125,12 +125,12 @@ export default class EditHotdog extends Component {
                         <div className="form-check form-check-inline">
                             <input className="form-check-input"
                                    type="radio"
-                                    name="priorityOption"
-                                    id="priorityHigh"
-                                    value="High"
-                                    checked={this.state.hotdog_priority==='High'}
-                                    onChange={this.onChangeHotdogPriority}
-                                    />
+                                   name="priorityOption"
+                                   id="priorityHigh"
+                                   value="High"
+                                   checked={this.state.hotdog_priority==='High'}
+                                   onChange={this.onChangeHotdogPriority}
+                                  />
 
                                 <label className="form-check-label">High</label>               
                         </div>
@@ -146,7 +146,7 @@ export default class EditHotdog extends Component {
                                 value={this.state.hotdog_completed}
                                 />
                                 <label className="form-check-label" htmlFor="completedCheckbox">
-                                    Completed
+                                    Cancel Order
                                 </label>
                     </div>              
                     <br/>      
