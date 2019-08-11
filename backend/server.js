@@ -1,4 +1,4 @@
-  const express = require('express');
+const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -48,7 +48,6 @@ hotdogRoutes.route('/add').post(function(req, res) {
 });
 
 
-
 hotdogRoutes.route('/update/:id').post(function(req, res) {
     Hotdog.findById(req.params.id, function(err, hotdog) {
         if(!hotdog)
@@ -64,6 +63,25 @@ hotdogRoutes.route('/update/:id').post(function(req, res) {
                 })
                 .catch(err => {
                     res.status(400).send("Update not possible");
+                });
+     });
+});
+
+hotdogRoutes.route('/delete/:id').delete(function(req, res) {
+    Hotdog.findById(req.params.id, function(err, hotdog) {
+        if(!hotdog)
+            res.status(404).send('data is not found');
+            else
+                hotdog.hotdog_description = req.body.hotdog_description;
+                hotdog.hotdog_responsible = req.body.hotdog_responsible;
+                hotdog.hotdog_priority = req.body.hotdog_priority;
+                hotdog.hotdog_complited= req.body.hotdog_complited;
+
+                hotdog.delete().then(hotdog => {
+                    res.json('Hotdog deleted');
+                })
+                .catch(err => {
+                    res.status(400).send("Delete not possible");
                 });
      });
 });

@@ -71,8 +71,22 @@ export default class EditHotdog extends Component {
             .then(res => console.log(res.data));
 
             this.props.history.push('/');
-
     }
+
+    onDelete(e) {
+        e.preventDefault();
+        const obj = {
+            hotdog_description: this.state.hotdog_description,
+            hotdog_responsible: this.state.hotdog_responsible,
+            hotdog_priority: this.state.hotdog_priority,
+            hotdog_completed: this.state.hotdog_completed
+        };
+        axios.delete('http://localhost:4000/hotdogs/delete/'+this.props.match.params.id, obj)
+            .then(res => console.log(res.data));
+
+            this.props.history.push('/');
+    }
+
 
     render() {
         return(
@@ -152,6 +166,7 @@ export default class EditHotdog extends Component {
                     <br/>      
                     <div className="form-group">
                         <input type="submit" value="Update Hotdog" className="btn btn-primary" />
+                        <button type="button" className="btn btn-danger delele" value="Delete" onClick={this.onDelete.bind(this)}>Delete</button>
                     </div>
                 </form>
             </div>

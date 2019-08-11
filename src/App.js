@@ -15,10 +15,15 @@ class App extends Component {
         <div className="container">
 
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <a className="navbar-brand" href="#" targer="_blank">
-               <img src={logo} width="60" height="30" alt=""></img>  
-               <Link to="/" className="navbar-brand">MERN-Stack Hotdog App</Link>
-            </a>
+            <div>
+              <a className="navbar-brand" href="#" targer="_blank">
+                <img src={logo} width="60" height="30" alt=""></img>  
+              </a>
+              <Link to="/" className="navbar-brand">MERN-Stack Hotdog App</Link>
+
+            </div>
+   
+
               <div className="collpase nav-collapse">
                 <ul className="navbar-nav mr-auto">
                   <li className="navbar-item">

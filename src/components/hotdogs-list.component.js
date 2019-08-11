@@ -9,7 +9,6 @@ const Hotdog = props => (
         <td className={props.hotdog.hotdog_completed ? 'completed' : ''}>{props.hotdog.hotdog_priority}</td>
         <td>
             <Link to={"/edit/"+props.hotdog._id}>Edit </Link>
-            <button className="btn red" >Delete</button>
         </td>
        
 
@@ -42,10 +41,7 @@ export default class HotdogsList extends Component {
             });
     }
 
-    onDelete() {
-
-    }
-
+  
     hotdogList() {
         return this.state.hotdogs.map(function(currentHotdog, i) {
             return <Hotdog hotdog={currentHotdog} key={i} />
