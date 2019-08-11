@@ -56,7 +56,6 @@ hotdogRoutes.route('/update/:id').post(function(req, res) {
                 hotdog.hotdog_description = req.body.hotdog_description;
                 hotdog.hotdog_responsible = req.body.hotdog_responsible;
                 hotdog.hotdog_priority = req.body.hotdog_priority;
-                hotdog.hotdog_complited= req.body.hotdog_complited;
 
                 hotdog.save().then(hotdog => {
                     res.json('Hotdog updated');
@@ -75,7 +74,6 @@ hotdogRoutes.route('/delete/:id').delete(function(req, res) {
                 hotdog.hotdog_description = req.body.hotdog_description;
                 hotdog.hotdog_responsible = req.body.hotdog_responsible;
                 hotdog.hotdog_priority = req.body.hotdog_priority;
-                hotdog.hotdog_complited= req.body.hotdog_complited;
 
                 hotdog.delete().then(hotdog => {
                     res.json('Hotdog deleted');

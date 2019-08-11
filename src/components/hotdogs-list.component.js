@@ -4,9 +4,9 @@ import axios from 'axios';
 
 const Hotdog = props => (
     <tr>
-        <td className={props.hotdog.hotdog_completed ? 'completed' : ''}>{props.hotdog.hotdog_description}</td>
-        <td className={props.hotdog.hotdog_completed ? 'completed' : ''}>{props.hotdog.hotdog_responsible}</td>
-        <td className={props.hotdog.hotdog_completed ? 'completed' : ''}>{props.hotdog.hotdog_priority}</td>
+        <td >{props.hotdog.hotdog_description}</td>
+        <td >{props.hotdog.hotdog_responsible}</td>
+        <td >{props.hotdog.hotdog_priority}</td>
         <td>
             <Link to={"/edit/"+props.hotdog._id}>Edit </Link>
         </td>

@@ -9,14 +9,14 @@ export default class EditHotdog extends Component {
         this.onChangeHotdogDescription = this.onChangeHotdogDescription.bind(this);
         this.onChangeHotdogResponsible = this.onChangeHotdogResponsible.bind(this);
         this.onChangeHotdogPriority = this.onChangeHotdogPriority.bind(this);
-        this.onChangeHotdogCompleted = this.onChangeHotdogCompleted.bind(this);
+
+        this.onDelete = this.onDelete.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
             hotdog_description: '',
             hotdog_responsible: '',
             hotdog_priority: '',
-            hotdog_completed: false
         }
     }
 
@@ -27,12 +27,12 @@ export default class EditHotdog extends Component {
                     hotdog_description: response.data.hotdog_description,
                     hotdog_responsible: response.data.hotdog_responsible,
                     hotdog_priority: response.data.hotdog_priority,
-                    hotdog_completed: response.data.hotdog_completed
                 }) 
             })
             .catch(function(error) {
                 console.log(error)
             })
+            // AbortController.abort();
     }
 
     onChangeHotdogDescription(e) {
@@ -53,11 +53,7 @@ export default class EditHotdog extends Component {
         });
     }
 
-    onChangeHotdogCompleted(e) {
-        this.setState({
-            hotdog_completed: !this.state.hotdog_completed
-        });
-    }
+    
 
     onSubmit(e) {
         e.preventDefault();
@@ -65,7 +61,6 @@ export default class EditHotdog extends Component {
             hotdog_description: this.state.hotdog_description,
             hotdog_responsible: this.state.hotdog_responsible,
             hotdog_priority: this.state.hotdog_priority,
-            hotdog_completed: this.state.hotdog_completed
         };
         axios.post('http://localhost:4000/hotdogs/update/'+this.props.match.params.id, obj)
             .then(res => console.log(res.data));
@@ -79,7 +74,6 @@ export default class EditHotdog extends Component {
             hotdog_description: this.state.hotdog_description,
             hotdog_responsible: this.state.hotdog_responsible,
             hotdog_priority: this.state.hotdog_priority,
-            hotdog_completed: this.state.hotdog_completed
         };
         axios.delete('http://localhost:4000/hotdogs/delete/'+this.props.match.params.id, obj)
             .then(res => console.log(res.data));
@@ -119,7 +113,6 @@ export default class EditHotdog extends Component {
                                     checked={this.state.hotdog_priority==='Low'}
                                     onChange={this.onChangeHotdogPriority}
                                     />
-
                                 <label className="form-check-label">Low</label>               
                         </div>
 
@@ -150,23 +143,9 @@ export default class EditHotdog extends Component {
                         </div>
                         
                     </div>
-                    <div className="form-check">
-                        <input type="checkbox" 
-                                className="form-check-input" 
-                                id="completedCheckbox"
-                                name="completedCheckbox"
-                                onChange={this.onChangeHotdogCompleted}
-                                checked={this.state.hotdog_completed}
-                                value={this.state.hotdog_completed}
-                                />
-                                <label className="form-check-label" htmlFor="completedCheckbox">
-                                    Cancel Order
-                                </label>
-                    </div>          
-                    <br/>      
                     <div className="form-group">
                         <input type="submit" value="Update Hotdog" className="btn btn-primary" />
-                        <button type="button" className="btn btn-danger delele" value="Delete" onClick={this.onDelete.bind(this)}>Delete</button>
+                        <button style={{margin: "0.5rem", width: "6rem" }} type="button" className="btn btn-danger delele" value="Delete" onClick={this.onDelete}>Delete</button>
                     </div>
                 </form>
             </div>

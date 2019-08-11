@@ -16,7 +16,7 @@ class App extends Component {
 
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div>
-              <a className="navbar-brand" href="#" targer="_blank">
+              <a className="navbar-brand" href="/" targer="_blank">
                 <img src={logo} width="60" height="30" alt=""></img>  
               </a>
               <Link to="/" className="navbar-brand">MERN-Stack Hotdog App</Link>

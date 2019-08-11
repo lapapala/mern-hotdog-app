@@ -14,8 +14,7 @@ export default class CreateHotdog extends Component {
             this.state = {
                 hotdog_description: '',
                 hotdog_responsible: '',
-                hotdog_priority: '',
-                hotdog_completed: false
+                hotdog_priority: ''
             }
         }
 
@@ -43,15 +42,13 @@ export default class CreateHotdog extends Component {
             console.log(`Form submited:`);
             console.log(`Hotdog Description: ${this.state.hotdog_description}`);
             console.log(`Hotdog Responsible: ${this.state.hotdog_responsible}`);
-            console.log(`Hotdog Description: ${this.state.hotdog_priority}`);
-            console.log(`Hotdog Complited: ${this.state.hotdog_completed }`);
+            console.log(`Hotdog Priority: ${this.state.hotdog_priority}`);
 
 
             const newHotdog = {
                 hotdog_description: this.state.hotdog_description,
                 hotdog_responsible: this.state.hotdog_responsible,
                 hotdog_priority: this.state.hotdog_priority,
-                hotdog_completed: this.state.hotdog_completed
             }
 
             axios.post('http://localhost:4000/hotdogs/add', newHotdog)
@@ -62,7 +59,6 @@ export default class CreateHotdog extends Component {
                 hotdog_description: '',
                 hotdog_responsible: '',
                 hotdog_priority: '',
-                hotdog_completed: false
             })
         }
 
@@ -78,7 +74,7 @@ export default class CreateHotdog extends Component {
                                 className="form-control"
                                 value={this.state.hotdog_description}
                                 onChange={this.onChangeHotdogDescription}
-                                />
+                                 />
                     </div>
                     <div className="form-group">
                         <label>Customer: </label>
